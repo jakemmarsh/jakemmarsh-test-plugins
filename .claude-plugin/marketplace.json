@@ -1,0 +1,16 @@
+{
+  "name": "jakemmarsh-test-public",
+  "owner": {
+    "name": "Jake Marsh"
+  },
+  "metadata": {
+    "description": "Barebones public test marketplace for plugin-sync integration testing"
+  },
+  "plugins": [
+    {
+      "name": "hello-cowork-public",
+      "source": "./plugins/hello-cowork",
+      "description": "Minimal test plugin (public) with one skill, one command, one agent"
+    }
+  ]
+}
