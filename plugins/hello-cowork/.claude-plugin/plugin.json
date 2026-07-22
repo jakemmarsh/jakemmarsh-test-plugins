@@ -1,6 +1,6 @@
 {
   "name": "hello-cowork-public",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Minimal test plugin for marketplace-sync integration tests",
   "author": {
     "name": "Jake Marsh"
