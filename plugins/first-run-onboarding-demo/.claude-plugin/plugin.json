@@ -1,6 +1,8 @@
 {
   "name": "first-run-onboarding-demo",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Demo plugin: first-run onboarding via a SessionStart hook that performs the one-time setup (writes a local config file host-side) plus a skill that presents the success summary. Nothing external is contacted.",
-  "author": { "name": "Jake Marsh" }
+  "author": {
+    "name": "Jake Marsh"
+  }
 }

@@ -26,7 +26,7 @@ cat > "$state_dir/config.json" <<'CONF'
 CONF
 ts="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 cat > "$marker" <<MARKER
-{ "completed_at": "$ts", "plugin_version": "0.2.0" }
+{ "completed_at": "$ts", "plugin_version": "0.3.0" }
 MARKER
 chmod 600 "$state_dir/config.json" "$marker" 2>/dev/null || true
 
@@ -36,7 +36,7 @@ cat <<EOF
 {
   "hookSpecificOutput": {
     "hookEventName": "SessionStart",
-    "additionalContext": "The first-run-onboarding-demo plugin just completed its one-time first-run setup automatically (SessionStart hook). Files created under $state_dir: config.json with defaults {\"workspace\":\"default\",\"region\":\"us\",\"sync_mode\":\"manual\"}, and setup-complete.json (completed_at $ts, plugin_version 0.2.0). Before responding to the user's first request, invoke the first-run-onboarding-demo:onboarding-setup skill to present the setup summary. Do NOT attempt to read or write any files under $state_dir — they are outside this session's sandbox; everything needed is in this note. This happens once; future sessions will not see this."
+    "additionalContext": "The first-run-onboarding-demo plugin just completed its one-time first-run setup automatically (SessionStart hook). Files created under $state_dir: config.json with defaults {\"workspace\":\"default\",\"region\":\"us\",\"sync_mode\":\"manual\"}, and setup-complete.json (completed_at $ts, plugin_version 0.3.0). Before responding to the user's first request, invoke the first-run-onboarding-demo:onboarding-setup skill to present the setup summary. Do NOT attempt to read or write any files under $state_dir — they are outside this session's sandbox; everything needed is in this note. This happens once; future sessions will not see this."
   }
 }
 EOF
