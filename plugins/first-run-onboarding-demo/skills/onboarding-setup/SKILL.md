@@ -5,32 +5,30 @@ description: First-run setup for the onboarding demo plugin. Invoke when a Sessi
 
 # First-run onboarding (demo)
 
-This is the one-time setup for the plugin. Three steps, in order. Keep the user in the loop.
+This is the one-time setup for the plugin. It runs automatically — do not ask the user any questions. Tell them in one sentence that you're doing a quick first-run setup, then do the steps, then show the success artifact.
 
-## 1. Explain and confirm
+## 1. Run the setup steps
 
-In one or two sentences, tell the user the plugin needs a quick first-run setup: it saves a small config file, then shows a summary. Ask for one demo value to store, e.g. "What workspace name should this plugin use?" Any placeholder is fine — this demo does not connect to anything external. Wait for their answer before continuing.
+The config lives under the Claude config dir: `$CLAUDE_CONFIG_DIR` if that env var is set (Cowork sets it), otherwise `~/.claude`. Do these in order, narrating each briefly (a short checklist as you go is ideal):
 
-## 2. Write the config file
+1. Create `<config dir>/first-run-onboarding-demo/` if it doesn't exist.
+2. Write `<config dir>/first-run-onboarding-demo/config.json` with sensible demo defaults:
+   ```json
+   { "workspace": "default", "region": "us", "sync_mode": "manual" }
+   ```
+3. Write the completion marker `<config dir>/first-run-onboarding-demo/setup-complete.json`:
+   ```json
+   { "completed_at": "<ISO 8601 timestamp>", "plugin_version": "0.1.0" }
+   ```
+   This is the file the SessionStart hook checks, so writing it stops the setup prompt from firing on future sessions.
 
-The config lives under the Claude config dir: `$CLAUDE_CONFIG_DIR` if that env var is set (Cowork sets it), otherwise `~/.claude`. Create `<config dir>/first-run-onboarding-demo/` if it doesn't exist, then write `<config dir>/first-run-onboarding-demo/setup-complete.json` with:
+If any write fails, say so plainly and stop — do not show the success artifact and do not claim setup finished. Nothing here connects to any external service; this is a demo of the flow only.
 
-```json
-{
-  "workspace_name": "<what the user gave>",
-  "completed_at": "<ISO 8601 timestamp>",
-  "plugin_version": "0.1.0"
-}
-```
+## 2. Show the success artifact
 
-This file doubles as the marker the SessionStart hook checks, so writing it stops the setup prompt from firing on future sessions. If the write fails, say so and stop — do not claim setup finished.
+Produce a "You're all set" summary. If the environment supports rendered artifacts (Cowork, claude.ai), make it an artifact; otherwise print it as markdown. Include:
 
-## 3. Show the success artifact
+- A checklist of what was set up (config directory created, defaults written, setup marker recorded), with the resolved config path
+- Two or three example prompts the user can try next
 
-Produce a short "Setup complete" summary. If the environment supports rendered artifacts (Cowork, claude.ai), make it an artifact; otherwise print it as markdown. Include:
-
-- Config saved to `<config dir>/first-run-onboarding-demo/setup-complete.json` (show the resolved path)
-- The workspace name they entered
-- Two or three example prompts they can try next
-
-Then stop and hand control back to the user.
+Then hand control back to the user and continue with whatever they originally asked.
