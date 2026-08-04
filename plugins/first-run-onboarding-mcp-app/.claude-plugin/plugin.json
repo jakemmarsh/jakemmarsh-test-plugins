@@ -1,0 +1,6 @@
+{
+  "name": "first-run-onboarding-mcp-app",
+  "version": "0.1.0",
+  "description": "First-run onboarding via an MCP App: a SessionStart hook detects missing setup, the plugin's MCP server performs the setup (durable, under ~/.claude) and the tool result renders an interactive success widget inline. Nothing external is contacted.",
+  "author": { "name": "Jake Marsh" }
+}

@@ -16,6 +16,11 @@
       "name": "first-run-onboarding-demo",
       "source": "./plugins/first-run-onboarding-demo",
       "description": "First-run onboarding demo: a SessionStart hook detects an un-set-up plugin and a skill runs setup, writes a config file, and shows a success summary."
+    },
+    {
+      "name": "first-run-onboarding-mcp-app",
+      "source": "./plugins/first-run-onboarding-mcp-app",
+      "description": "First-run onboarding via an MCP App: the plugin's MCP server performs durable setup and the tool result renders an interactive success widget inline."
     }
   ]
 }
