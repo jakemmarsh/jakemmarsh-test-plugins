@@ -1,8 +1,0 @@
-{
-  "name": "greeting-note",
-  "version": "0.1.0",
-  "description": "Writes a short friendly greeting.",
-  "author": {
-    "name": "Test Author"
-  }
-}
