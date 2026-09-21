@@ -1,0 +1,8 @@
+{
+  "name": "list-tidy",
+  "version": "0.1.0",
+  "description": "Tidies a list into bullets.",
+  "author": {
+    "name": "Test Author"
+  }
+}

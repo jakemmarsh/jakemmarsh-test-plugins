@@ -21,6 +21,16 @@
       "name": "first-run-onboarding-mcp-app",
       "source": "./plugins/first-run-onboarding-mcp-app",
       "description": "First-run onboarding via an MCP App: the plugin's MCP server performs durable setup and the tool result renders an interactive success widget inline."
+    },
+    {
+      "name": "greeting-note",
+      "source": "./plugins/greeting-note",
+      "description": "Writes a short friendly greeting."
+    },
+    {
+      "name": "list-tidy",
+      "source": "./plugins/list-tidy",
+      "description": "Tidies a list into bullets."
     }
   ]
 }
